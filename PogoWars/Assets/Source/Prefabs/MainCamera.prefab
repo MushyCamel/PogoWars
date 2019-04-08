@@ -98,7 +98,7 @@ MonoBehaviour:
   _zoomSmooth: 5
   _offset: {x: 0, y: 0, z: -10}
   _smoothTime: 0.5
-  _minZoom: 4
-  _maxZoom: 1
+  _minZoom: 5.02
+  _maxZoom: 1.12
   _zoomLimit: 50
   _camera: {fileID: 7419966895413310445}

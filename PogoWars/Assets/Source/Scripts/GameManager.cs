@@ -44,10 +44,16 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start()
+    private void Update()
     {
         scene = SceneManager.GetActiveScene();
-        if(scene.buildIndex != 0 )
+        if (scene.buildIndex == 0)
+            return;
+    }
+
+    void Start()
+    {
+
         // Create the delays so they only have to be made once.
         _startWait = new WaitForSeconds(_startDelay);
         _endWait = new WaitForSeconds(_endDelay);
@@ -85,25 +91,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-  /*  private void SetCameraTargets()
-    {
-        // Create a collection of transforms the same size as the number of tanks.
-        Transform[] targets = new Transform[_players.Length];
 
-        // For each of these transforms...
-        for (int i = 0; i < targets.Length; i++)
-        {
-            // ... set it to the appropriate tank transform.
-            targets[i] = _players[i]._instance.transform;
-        }
-
-        // These are the targets the camera should follow.
-        _cameraScript._targets = targets;
-   
-   }*/
 
     private IEnumerator GameLoop()
     {
+
+ 
+         
+
         // Start by running 'RoundStarting'.
         yield return StartCoroutine(RoundStarting());
 

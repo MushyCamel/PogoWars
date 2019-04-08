@@ -42,17 +42,20 @@ public class CameraScript : MonoBehaviour
         _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, newZoom, Time.deltaTime);
         }
 
+        
         void Move()
         {
             Vector3 centerPoint = GetCeneterPoint();
 
             Vector3 newPosition = centerPoint + _offset;
-
+            
+        //lock the position on the y axis due to the players bouncing up and down
             newPosition.y = 0;
 
             transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, _smoothTime);
         }
 
+        //Calculates the greatest distance between the two furthest players and creates a box around them. Return the size of the distance on the x axis
         float GetGreatestDistance()
         {
             var _bounds = new Bounds(_players[0].transform.position, Vector3.zero);
