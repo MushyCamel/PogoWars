@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpForce: 100
+  rotLimit: 30
   rotSpeed: 5
   rot: 0
   hitDistance: 0.17

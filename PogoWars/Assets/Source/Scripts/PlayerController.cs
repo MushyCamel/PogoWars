@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float _jumpForce = 1000;
  
+    public float rotLimit = 20f;
     public float rotSpeed = 5f;
     public float rot = 0f;
     public float hitDistance = 0.17f;
@@ -29,7 +30,7 @@ public class PlayerController : MonoBehaviour
        transform.eulerAngles = new Vector3(0.0f, 0.0f, rot);
 
         //limits the amount of rotation and returns to the upright position if there is no input
-        if (rot < 20 || rot > 20){
+        if (rot < rotLimit || rot > rotLimit){
            rot = 0;
            
        }
