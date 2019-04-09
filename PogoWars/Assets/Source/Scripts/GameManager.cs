@@ -12,9 +12,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Properties")]
 
-    public int _numRoundsToWin = 3;            
-    public float _startDelay = 3f;             
-    public float _endDelay = 3f;
+    public int numRoundsToWin = 3;            
+    public float startDelay = 3f;             
+    public float endDelay = 3f;
 
     [Header("References")]
 
@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        //checks to see if the current scene is the main menu and if it is does nothing
         scene = SceneManager.GetActiveScene();
         if (scene.buildIndex == 0)
             return;
@@ -55,10 +56,9 @@ public class GameManager : MonoBehaviour
     {
 
         // Create the delays so they only have to be made once.
-        _startWait = new WaitForSeconds(_startDelay);
-        _endWait = new WaitForSeconds(_endDelay);
+        _startWait = new WaitForSeconds(startDelay);
+        _endWait = new WaitForSeconds(endDelay);
 
-       // SetCameraTargets();
 
 
         StartCoroutine(GameLoop());
@@ -85,8 +85,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < _players.Length; i++)
         {
             // ... create them, set their player number and references needed for control.
-            _players[i]._instance = Instantiate(_players[i]._playerPrefab, _spawnPoints[i].transform.position, _spawnPoints[i].transform.rotation) as GameObject;
-            _players[i]._playerNumber = i + 1;
+            _players[i].instance = Instantiate(_players[i].playerPrefab, _spawnPoints[i].transform.position, _spawnPoints[i].transform.rotation) as GameObject;
+            _players[i].playerNumber = i + 1;
             _players[i].Setup();
         }
     }
@@ -95,9 +95,6 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator GameLoop()
     {
-
- 
-         
 
         // Start by running 'RoundStarting'.
         yield return StartCoroutine(RoundStarting());
@@ -156,7 +153,7 @@ public class GameManager : MonoBehaviour
 
         //Add to the score if there is a winner
         if (_roundWinner != null)
-            _roundWinner._wins++;
+            _roundWinner.wins++;
 
         _gameWinner = GetGameWinner();
 
@@ -181,12 +178,12 @@ public class GameManager : MonoBehaviour
                 continue;
             }
 
-            if (_players[i]._instance == null)
+            if (_players[i].instance == null)
             {
                 continue;
             }
 
-            if (_players[i]._instance.activeSelf)
+            if (_players[i].instance.activeSelf)
                 numPlayersLeft++;
         }
 
@@ -202,10 +199,10 @@ public class GameManager : MonoBehaviour
             if (_players[i] == null)
                 continue;
 
-            if (_players[i]._instance == null)
+            if (_players[i].instance == null)
                 continue;
 
-            if (_players[i]._instance.activeSelf)
+            if (_players[i].instance.activeSelf)
                 return _players[i];
         }
 
@@ -219,7 +216,7 @@ public class GameManager : MonoBehaviour
         //go through all the players and find out if they have won enough rounds to win the game.
         for (int i = 0; i < _players.Length; i++)
         {
-            if (_players[i]._wins == _numRoundsToWin)
+            if (_players[i].wins == numRoundsToWin)
                 return _players[i];
         }
         //if noone has enough to win return
@@ -233,35 +230,40 @@ public class GameManager : MonoBehaviour
 
         //If there a player dies the player that killed them wins the round, displays a message of the player who is left alive then " WINS THE ROUND!"
         if (_roundWinner != null)
-            message = _roundWinner._colouredPlayerText + " WINS THE ROUND!";
+            message = _roundWinner.colouredPlayerText + " WINS THE ROUND!";
 
         message += "\n\n\n\n";
 
+        //lists the score for each of the players
         for (int i = 0; i < _players.Length; i++)
         {
-            message += _players[i]._colouredPlayerText + ": " + _players[i]._wins + " WINS!\n";
+            message += _players[i].colouredPlayerText + ": " + _players[i].wins + " WINS!\n";
         }
 
+        //displays the winner of the game
         if (_gameWinner != null)
-            message = _gameWinner._colouredPlayerText + " WINS THE GAME!";
+            message = _gameWinner.colouredPlayerText + " WINS THE GAME!";
 
         return message;
     }
 
+    //resets all the players
     private void ResetAllPlayers()
     {
+        //if they don't exist do return
         if (_spawnPoints == null || _players == null)
             return;
-
+        //if players and spawnpoints don't match
         if (_players.Length != _spawnPoints.Length)
             return;
-
+        // for every player reset based on the spawnpoint
         for (int i = 0; i < _players.Length; i++)
         {
             _players[i].Reset(_spawnPoints[i]);
         }
     }
 
+    //loads a random next level
    void NextLevel()
     {
         int index = UnityEngine.Random.Range(1, 5);

@@ -5,7 +5,6 @@ using UnityEngine;
 public class PogoSpring : MonoBehaviour
 {
 
-  #region Unity Editor 
 
   [Header("Properties")]
   [SerializeField]
@@ -21,7 +20,7 @@ public class PogoSpring : MonoBehaviour
   [SerializeField]
   private Rigidbody2D _rigidbody;
 
-  #endregion
+  
 
   private float _queuedJump = 0;
 

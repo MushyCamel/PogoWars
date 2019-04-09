@@ -6,7 +6,7 @@ using System.IO;
 
 public class SettingsManager : MonoBehaviour
 {
-     [Header("Reference")]
+    [Header("Reference")]
     public Toggle fullscreenToggle;
     public Dropdown resolutionDropdown;
     public Slider musicVolumeSlider;
@@ -18,13 +18,14 @@ public class SettingsManager : MonoBehaviour
 
     void OnEnable() {
 
+        //added to fix a bug, checks to see if there is an existing file, and if there isn't creates one by calling SaveSettings
         if (!File.Exists(Application.persistentDataPath + "/gamesettings.json"))
             SaveSettings();
 
         //intialize a new instance
         gameSettings = new GameSettings();
 
-        
+        //on the event that a the value is changed point to the relevant function.
         fullscreenToggle.onValueChanged.AddListener(delegate{ OnFullscreenToggle(); } );
         resolutionDropdown.onValueChanged.AddListener(delegate{ OnResolutionChange(); } );
         musicVolumeSlider.onValueChanged.AddListener(delegate{ OnVolumeChange(); } );
@@ -57,6 +58,7 @@ public class SettingsManager : MonoBehaviour
 
     public void OnVolumeChange()
     {
+        //didn't get round to adding music to the game but the functionality for changing the volume is roughly there but untested.
         musicSource.volume = gameSettings.masterVolume = musicVolumeSlider.value;
     }
 

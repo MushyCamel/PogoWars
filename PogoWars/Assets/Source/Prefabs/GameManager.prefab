@@ -136,25 +136,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397f01dcd300fbd48a0c33e2eb95a504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _numRoundsToWin: 3
-  _startDelay: 3
-  _endDelay: 5
+  numRoundsToWin: 3
+  startDelay: 3
+  endDelay: 3
   _messageText: {fileID: 7681348613262737508}
   _players:
-  - _playerColour: {r: 1, g: 0, b: 0, a: 0}
-    _playerPrefab: {fileID: 4983440787469835081, guid: 1ac80a1df7c46ca42b7cf1b25b01d56e,
+  - playerColour: {r: 1, g: 0, b: 0, a: 0}
+    playerPrefab: {fileID: 4983440787469835081, guid: 1ac80a1df7c46ca42b7cf1b25b01d56e,
       type: 3}
-    _playerNumber: 0
-    _colouredPlayerText: 
-    _instance: {fileID: 0}
-    _wins: 0
-  - _playerColour: {r: 0, g: 0.29990482, b: 1, a: 0}
-    _playerPrefab: {fileID: 1923126927397804559, guid: 29cf4c7c04618844bb90efdefac63893,
+    playerNumber: 0
+    colouredPlayerText: 
+    instance: {fileID: 0}
+    wins: 0
+  - playerColour: {r: 0, g: 0.12531853, b: 1, a: 0}
+    playerPrefab: {fileID: 1923126927397804559, guid: 29cf4c7c04618844bb90efdefac63893,
       type: 3}
-    _playerNumber: 0
-    _colouredPlayerText: 
-    _instance: {fileID: 0}
-    _wins: 0
+    playerNumber: 0
+    colouredPlayerText: 
+    instance: {fileID: 0}
+    wins: 0
 --- !u!1 &4988746098430794583
 GameObject:
   m_ObjectHideFlags: 0

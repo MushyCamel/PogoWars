@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// NOT USED
+
 public class ScoreScript : MonoBehaviour
 {
   /*  public static int scoreValue = 0;

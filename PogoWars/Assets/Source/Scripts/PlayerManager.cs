@@ -6,38 +6,38 @@ using UnityEngine;
 [Serializable]
 public class PlayerManager
 {
-    public Color _playerColour;
-    public GameObject _playerPrefab;
-    [HideInInspector] public int _playerNumber;            
-    [HideInInspector] public string _colouredPlayerText;    
-    [HideInInspector] public GameObject _instance;         
-    [HideInInspector] public int _wins;                    
+    public Color playerColour;
+    public GameObject playerPrefab;
+    [HideInInspector] public int playerNumber;            
+    [HideInInspector] public string colouredPlayerText;    
+    [HideInInspector] public GameObject instance;         
+    [HideInInspector] public int wins;                    
 
-    private PlayerController _movement;                        // Reference to tank's movement script, used to disable and enable control.
-    private GameObject _canvasGameObject;                  // Used to disable the world space UI during the Starting and Ending phases of each round.
+    private PlayerController _movement;                       
+    private GameObject _canvasGameObject; 
 
-    // Start is called before the first frame update
+
     public void Setup()
     {
         
+        //Assigns the players components based on the player number, and assigns them a text colour.
+        _movement = instance.GetComponent<PlayerController>();
+        _canvasGameObject = instance.GetComponentInChildren<Canvas>().gameObject;
 
-        _movement = _instance.GetComponent<PlayerController>();
-        _canvasGameObject = _instance.GetComponentInChildren<Canvas>().gameObject;
+        _movement.playerNumber = playerNumber;
 
-        _movement._playerNumber = _playerNumber;
-
-        _colouredPlayerText = "<color=#" + ColorUtility.ToHtmlStringRGB(_playerColour) + ">PLAYER " + _playerNumber + "</color>";
+        colouredPlayerText = "<color=#" + ColorUtility.ToHtmlStringRGB(playerColour) + ">PLAYER " + playerNumber + "</color>";
     }
 
 
-    // Used at the start of each round to put the tank into it's default state.
+    // Used at the start of each round to put the player into it's default state.
     public void Reset(Transform spawnPoint)
     {
-        _instance.transform.position = spawnPoint.transform.position;
-        _instance.transform.rotation = spawnPoint.transform.rotation;
+        instance.transform.position = spawnPoint.transform.position;
+        instance.transform.rotation = spawnPoint.transform.rotation;
 
-        _instance.SetActive(false);
-        _instance.SetActive(true);
+        instance.SetActive(false);
+        instance.SetActive(true);
 
     }
 }

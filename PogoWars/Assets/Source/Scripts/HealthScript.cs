@@ -7,22 +7,23 @@ public class HealthScript : MonoBehaviour
 {
     [Header("Properties")]
     [SerializeField]
-    public float _startingHealth = 90f;
-    public Slider _slider;
-    public Image _fillImage;
-    public Color _fullHealthColor = Color.green;
-    public Color _zeroHealthColor = Color.red;
-    public int _damage = 30;
+    public float startingHealth = 90f;
+    public Slider slider;
+    public Image fillImage;
+    public Color fullHealthColour = Color.green;
+    public Color zeroHealthColor = Color.red;
+    public int damage = 30;
 
 
 
     private float _currentHealth;
-    private bool isDead;
+    private bool _isDead;
 
     void OnEnable()
     {
-        _currentHealth = _startingHealth;
-        isDead = false;
+        //set the current health to the starting health
+        _currentHealth = startingHealth;
+        _isDead = false;
 
         SetHealthUI();
     }
@@ -31,12 +32,12 @@ public class HealthScript : MonoBehaviour
     public void TakeDamage()
     {
         // If the enemy is dead, exit
-        if (isDead)
+        if (_isDead)
             
             return;
 
         // Reduce the current health by the damage
-        _currentHealth -= _damage;
+        _currentHealth -= damage;
 
         SetHealthUI();
         StartCoroutine(Flasher());
@@ -44,13 +45,14 @@ public class HealthScript : MonoBehaviour
 
 
         // If the current health is less than or equal to zero and the player isn't dead call death
-        if (_currentHealth <= 0 && !isDead)
+        if (_currentHealth <= 0 && !_isDead)
         {
             
             Death();
         }
     }
 
+    //makes the player flash when hit.
     private IEnumerator Flasher()
     {
 
@@ -64,16 +66,16 @@ public class HealthScript : MonoBehaviour
     private void SetHealthUI()
     {
         // Set the slider's value appropriately.
-        _slider.value = _currentHealth;
+        slider.value = _currentHealth;
 
         // Interpolate the color of the bar between the choosen colours based on the current percentage of the starting health.
-        _fillImage.color = Color.Lerp(_zeroHealthColor, _fullHealthColor, _currentHealth / _startingHealth);
+        fillImage.color = Color.Lerp(zeroHealthColor, fullHealthColour, _currentHealth / startingHealth);
     }
 
    public void Death()
     {
        
-        isDead = true;
+        _isDead = true;
         // Turn the player off.
         gameObject.SetActive(false);
 

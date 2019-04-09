@@ -77,11 +77,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4983440787503895963, guid: 1ac80a1df7c46ca42b7cf1b25b01d56e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -1.11
-      objectReference: {fileID: 0}
     - target: {fileID: 4983440787469835189, guid: 1ac80a1df7c46ca42b7cf1b25b01d56e,
         type: 3}
       propertyPath: m_Sprite
@@ -138,15 +133,25 @@ PrefabInstance:
       propertyPath: PlayerLayer
       value: Player1
       objectReference: {fileID: 0}
+    - target: {fileID: 4983440787469835190, guid: 1ac80a1df7c46ca42b7cf1b25b01d56e,
+        type: 3}
+      propertyPath: jumpButton
+      value: Jump_P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4983440787469835190, guid: 1ac80a1df7c46ca42b7cf1b25b01d56e,
+        type: 3}
+      propertyPath: horizontalCtrl
+      value: Horizontal_P2
+      objectReference: {fileID: 0}
     - target: {fileID: 4983440787469835080, guid: 1ac80a1df7c46ca42b7cf1b25b01d56e,
         type: 3}
       propertyPath: _springLayerMask.m_Bits
       value: 2835
       objectReference: {fileID: 0}
-    - target: {fileID: 4983440787503895960, guid: 1ac80a1df7c46ca42b7cf1b25b01d56e,
+    - target: {fileID: 4983440787503895963, guid: 1ac80a1df7c46ca42b7cf1b25b01d56e,
         type: 3}
-      propertyPath: m_Layer
-      value: 5
+      propertyPath: m_AnchoredPosition.x
+      value: -1.11
       objectReference: {fileID: 0}
     - target: {fileID: 4983440786977160961, guid: 1ac80a1df7c46ca42b7cf1b25b01d56e,
         type: 3}
@@ -163,17 +168,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4983440787503895960, guid: 1ac80a1df7c46ca42b7cf1b25b01d56e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4983440788786963040, guid: 1ac80a1df7c46ca42b7cf1b25b01d56e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4983440787513403044, guid: 1ac80a1df7c46ca42b7cf1b25b01d56e,
         type: 3}
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4983440788016426015, guid: 1ac80a1df7c46ca42b7cf1b25b01d56e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4983440788786963040, guid: 1ac80a1df7c46ca42b7cf1b25b01d56e,
         type: 3}
       propertyPath: m_Layer
       value: 5

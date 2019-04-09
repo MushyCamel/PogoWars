@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [RequireComponent(typeof(Camera))]
 public class CameraScript : MonoBehaviour
 {
@@ -28,10 +29,10 @@ public class CameraScript : MonoBehaviour
             _players = GameObject.FindGameObjectsWithTag("Player");
             return;
         }
-
+        // call relative functions
             Move();
             Zoom();
-        }
+    }
 
         //takes the greatest distance between players and changes the zoom 
         void Zoom()
@@ -49,13 +50,12 @@ public class CameraScript : MonoBehaviour
 
             Vector3 newPosition = centerPoint + _offset;
             
-        //lock the position on the y axis due to the players bouncing up and down
-            newPosition.y = 0;
+
 
             transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, _smoothTime);
         }
 
-        //Calculates the greatest distance between the two furthest players and creates a box around them. Return the size of the distance on the x axis
+        //Calculates the greatest distance between the two furthest players and creates a box around them using encapsulate. Return the size of the distance on the x axis
         float GetGreatestDistance()
         {
             var _bounds = new Bounds(_players[0].transform.position, Vector3.zero);

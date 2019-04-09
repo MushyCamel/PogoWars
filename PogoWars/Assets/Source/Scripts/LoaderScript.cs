@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// *UNUSED AND OBSELETE*
 public class LoaderScript : MonoBehaviour
 {
 

@@ -263,12 +263,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpForce: 100
-  _rotSpeed: 5
-  _rot: 0
-  _hitDistance: 0.17
-  JumpButton: Jump_P1
-  HorizontalCtrl: Horizontal_P1
-  _playerNumber: 1
+  rotSpeed: 5
+  rot: 0
+  hitDistance: 0.17
+  jumpButton: Jump_P1
+  horizontalCtrl: Horizontal_P1
+  playerNumber: 1
   PlayerLayer: Player2
   _pogoSpring: {fileID: 4983440787469835080}
 --- !u!114 &4983440787469835080
@@ -302,12 +302,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f1599c13ac79749aa1b2b86171c1a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startingHealth: 90
-  _slider: {fileID: 4983440786977160963}
-  _fillImage: {fileID: 4983440788786963042}
-  _fullHealthColor: {r: 0, g: 1, b: 0, a: 1}
-  _zeroHealthColor: {r: 1, g: 0, b: 0, a: 1}
-  _damage: 30
+  startingHealth: 90
+  slider: {fileID: 4983440786977160963}
+  fillImage: {fileID: 4983440788786963042}
+  fullHealthColour: {r: 0, g: 1, b: 0, a: 1}
+  zeroHealthColor: {r: 1, g: 0, b: 0, a: 1}
+  damage: 30
 --- !u!1 &4983440787503895960
 GameObject:
   m_ObjectHideFlags: 0

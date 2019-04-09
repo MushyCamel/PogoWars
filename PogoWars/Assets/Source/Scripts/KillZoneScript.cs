@@ -5,7 +5,7 @@ using UnityEngine;
 public class KillZoneScript : MonoBehaviour
 {
     
-    // Update is called once per frame
+    // turn off the player on touch.
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.tag == ("Player"))

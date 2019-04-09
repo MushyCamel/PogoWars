@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// *NOT USED* Began writing the physics for the game but realised I was out of my deapth and reverted to unity's physics
 public class PhysicsObject : MonoBehaviour
 {
 
